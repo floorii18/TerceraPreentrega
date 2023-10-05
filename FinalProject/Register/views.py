@@ -14,7 +14,7 @@ def register(request):
         form = SignInForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('login.html')
     else:
         form = SignInForm()
     return render(request, 'signin.html', {'form': form})
