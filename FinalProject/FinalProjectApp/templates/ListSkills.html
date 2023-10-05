@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<body>
+    <style>
+        body {
+              background-image: url("https://i.postimg.cc/ZnBdL5hS/img1-wallspic-com-morado-petalo-violeta-rosa-dedo-3840x2160.png");
+              background-repeat: no-repeat;
+              background-size:cover;
+            }
+      </style>
+    <main>
+        <div class="position-absolute w-100 h-100 bg-black opacity-75 top-10 start-10">
+        <div class="container py-vh-4 position-relative mt-5 px-vw-5 text-center">
+        <div class="row d-flex align-items-center justify-content-center py-vh-5">
+        <div class="position-absolute w-100 h-100 bg-black opacity-75 top-0 start-0">
+            <ul>
+                {% for skill in Skills %}
+
+                <li>{{ skill }}</li>
+
+                {% endfor %}
+            </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+    </main>
+</body>
+{% endblock content %}

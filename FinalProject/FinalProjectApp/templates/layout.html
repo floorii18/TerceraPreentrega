@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="h-100" lang="en">
+  <meta charset="utf-8"/>
+  <meta name="keywords" content="foo,bar"/>
+  <meta name="description" content="foo"/>
+
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=yes">
+  <title>Flori's Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="{% static 'css/theme.min.css' %}"/>
+  
+
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
+  <nav id="navScroll" class="navbar navbar-dark bg-black fixed-top px-vw-5" tabindex="0">
+    <div class="container">
+      <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center">
+        <a href="{% url '' %}" target='_blank'><img src="https://i.postimg.cc/NfWc4BXN/images-Photo-Room-1.png" alt="" width="80" height="80"/></a>
+        <span class="ms-md-1 mt-1 fw-bolder me-md-5">Home</span>
+      </a>
+
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 list-group list-group-horizontal">
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="{% url 'experience' %}">
+            Experience
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-5" href="{% url 'certifications' %}">
+              Certifications
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="{% url 'skills' %}">
+              Skills
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5" href="{% url 'about' %}">
+              About me
+            </a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="{% url 'signin' %}" aria-label="A system message page">
+            Sign In
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="{% url 'Login' %}" aria-label="A system message page">
+            Log In
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</head>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // values from 0 to 3000, with step 50ms
+  });
+</script>
+<script>
+  let scrollpos = window.scrollY;
+  const header = document.querySelector(".navbar");
+  const header_height = header.offsetHeight;
+
+  const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+  const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+  window.addEventListener('scroll', function () {
+    scrollpos = window.scrollY;
+
+    if (scrollpos >= header_height) { add_class_on_scroll(); }
+    else { remove_class_on_scroll(); }
+
+    console.log(scrollpos);
+  })
+</script>
+
+<body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+   
+    {% block content %}
+    
+    {% endblock content %}
+    
+</body>
+
+<footer class="bg-black border-top border-dark"> 
+  <div class="container text-center small py-vh-2 border-top border-dark">
+    Made by Florencia Intile ®
+  </div>
+</footer>
+
+</html>
